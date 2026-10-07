@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Access logs · FaceGuard</title><link rel="stylesheet" href="/css/style.css"><script src="/js/app.js" defer></script><script src="/js/logs.js" defer></script></head>
+<body data-page="logs"><div class="app-shell">
+  <aside class="sidebar"><a class="brand" href="/"><span class="brand-mark">FG</span><span>FaceGuard<small>ACCESS CONTROL</small></span></a><p class="nav-caption">WORKSPACE</p><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav="dashboard"><span>▦</span>Dashboard</a><a href="/personnel.html" data-nav="personnel"><span>♙</span>Personnel</a><a href="/verification.html" data-nav="verification"><span>◎</span>Access verification</a><a href="/areas.html" data-nav="areas"><span>⌖</span>Areas</a><a href="/logs.html" data-nav="logs"><span>≡</span>Access logs</a></nav><div class="sidebar-footer"><span class="live-dot"></span> Local system<small>FastAPI · SQLite</small></div></aside>
+  <div class="main-column"><header class="topbar"><div><p class="eyebrow">AUDIT TRAIL</p><h1>Access logs</h1></div><div id="api-status" class="api-status" role="status"><span class="status-dot"></span>Checking API</div></header><main class="page-content">
+    <section class="welcome-row"><div><h2>Access activity</h2><p>Verification attempts recorded by the FaceGuard backend.</p></div><button id="refresh-logs" class="button button-secondary" type="button">↻ Refresh</button></section>
+    <section class="panel"><div class="filter-bar"><label>Area<select id="filter-area"><option value="">All areas</option></select></label><label>Result<select id="filter-result"><option value="">All results</option><option value="ACCESS_GRANTED">Granted</option><option value="ACCESS_DENIED">Denied</option></select></label><label>Date (UTC)<input id="filter-date" type="date"></label><label class="grow">Person or employee ID<input id="filter-person" type="search" placeholder="Search logs"></label><button id="clear-filters" class="button button-quiet" type="button">Clear</button></div><div class="panel-heading table-title"><div><h2>Recorded events</h2><p id="log-count">Loading log records…</p></div></div><div id="logs-table" class="table-wrap"><p class="loading-state">Loading access logs…</p></div></section>
+    <p id="logs-error" class="inline-notice notice-error" role="alert" hidden></p>
+  </main></div>
+</div></body></html>
+

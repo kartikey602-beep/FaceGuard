@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#101821">
+  <title>Dashboard · FaceGuard</title><link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script><script src="/js/dashboard.js" defer></script>
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/"><span class="brand-mark">FG</span><span>FaceGuard<small>ACCESS CONTROL</small></span></a>
+      <p class="nav-caption">WORKSPACE</p>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/" data-nav="dashboard"><span>▦</span>Dashboard</a><a href="/personnel.html" data-nav="personnel"><span>♙</span>Personnel</a>
+        <a href="/verification.html" data-nav="verification"><span>◎</span>Access verification</a><a href="/areas.html" data-nav="areas"><span>⌖</span>Areas</a><a href="/logs.html" data-nav="logs"><span>≡</span>Access logs</a>
+      </nav>
+      <div class="sidebar-footer"><span class="live-dot"></span> Local system<small>FastAPI · SQLite</small></div>
+    </aside>
+    <div class="main-column">
+      <header class="topbar"><div><p class="eyebrow">OVERVIEW</p><h1>Dashboard</h1></div><div id="api-status" class="api-status" role="status"><span class="status-dot"></span>Checking API</div></header>
+      <main class="page-content">
+        <section class="welcome-row"><div><h2>Security overview</h2><p>Live personnel, area, and access activity from this FaceGuard instance.</p></div><a class="button button-primary" href="/verification.html">Open verification <span aria-hidden="true">→</span></a></section>
+        <section class="stat-grid" aria-label="System summary">
+          <article class="stat-card"><div class="stat-icon icon-blue">♙</div><p>Total personnel</p><strong id="stat-personnel">—</strong><small id="stat-active-personnel">Loading personnel</small></article>
+          <article class="stat-card"><div class="stat-icon icon-green">✓</div><p>Access granted today</p><strong id="stat-granted">—</strong><small>Recorded events · UTC day</small></article>
+          <article class="stat-card"><div class="stat-icon icon-red">×</div><p>Access denied today</p><strong id="stat-denied">—</strong><small>Recorded events · UTC day</small></article>
+          <article class="stat-card"><div class="stat-icon icon-violet">⌖</div><p>Active areas</p><strong id="stat-areas">—</strong><small id="stat-area-total">Loading areas</small></article>
+        </section>
+        <section class="panel"><div class="panel-heading"><div><h2>Recent access attempts</h2><p>Latest events recorded by the backend</p></div><a class="text-link" href="/logs.html">View all logs <span>→</span></a></div><div id="recent-events" class="table-wrap"><p class="loading-state">Loading recent activity…</p></div></section>
+        <p id="dashboard-error" class="inline-notice" role="status" hidden></p>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

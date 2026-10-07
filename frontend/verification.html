@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Access verification · FaceGuard</title><link rel="stylesheet" href="/css/style.css"><script src="/js/app.js" defer></script><script src="/js/verification.js" defer></script></head>
+<body data-page="verification"><div class="app-shell">
+  <aside class="sidebar"><a class="brand" href="/"><span class="brand-mark">FG</span><span>FaceGuard<small>ACCESS CONTROL</small></span></a><p class="nav-caption">WORKSPACE</p><nav class="nav-links" aria-label="Main navigation"><a href="/" data-nav="dashboard"><span>▦</span>Dashboard</a><a href="/personnel.html" data-nav="personnel"><span>♙</span>Personnel</a><a href="/verification.html" data-nav="verification"><span>◎</span>Access verification</a><a href="/areas.html" data-nav="areas"><span>⌖</span>Areas</a><a href="/logs.html" data-nav="logs"><span>≡</span>Access logs</a></nav><div class="sidebar-footer"><span class="live-dot"></span> Local system<small>FastAPI · SQLite</small></div></aside>
+  <div class="main-column"><header class="topbar"><div><p class="eyebrow">ACCESS TERMINAL</p><h1>Access verification</h1></div><div id="api-status" class="api-status" role="status"><span class="status-dot"></span>Checking API</div></header><main class="page-content">
+    <section class="welcome-row"><div><h2>Verify an access request</h2><p>Select an area and provide one face image. FaceGuard checks only that area's authorized gallery.</p></div></section>
+    <div class="verification-layout"><section class="panel verification-panel"><div class="panel-heading"><div><h2>Face input</h2><p>Upload an image, or capture a frame from your camera</p></div><span class="secure-label"><span class="live-dot"></span> Backend recognition</span></div>
+      <label class="field-label" for="verify-area">Access area</label><select id="verify-area" class="control"><option value="">Loading areas…</option></select>
+      <div class="capture-frame"><video id="camera-preview" autoplay playsinline hidden></video><div id="image-placeholder" class="capture-placeholder"><span class="capture-icon">◎</span><strong>Image preview</strong><span>Select an image to preview it here</span></div><img id="image-preview" alt="Selected face image preview" hidden></div>
+      <div class="input-actions"><label class="button button-secondary file-button">Choose image<input id="verify-image" type="file" accept="image/*"></label><button id="start-camera" class="button button-secondary" type="button">Use camera</button><button id="capture-frame" class="button button-secondary" type="button" hidden>Capture frame</button><button id="stop-camera" class="button button-quiet" type="button" hidden>Stop camera</button></div>
+      <p id="image-name" class="muted small-text">No image selected</p><p id="verification-error" class="inline-notice notice-error" role="alert" hidden></p>
+      <button id="verify-button" class="button button-primary button-wide" type="button" disabled><span>Verify access</span><span aria-hidden="true">→</span></button>
+    </section>
+    <section id="verification-result" class="result-card result-idle" aria-live="polite"><div class="result-symbol">◎</div><p class="eyebrow">VERIFICATION RESULT</p><h2>Ready for verification</h2><p>Choose an area and image to receive a decision from the FaceGuard backend.</p></section></div>
+    <p class="privacy-note">Images are sent to the local FastAPI service for face processing. The browser does not receive or display face embeddings.</p>
+  </main></div>
+</div></body></html>
+
